@@ -87,4 +87,12 @@
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
+    <com.example.myapplication.JoystickView
+        android:id="@+id/joystick"
+        android:layout_width="184dp"
+        android:layout_height="176dp"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toStartOf="@+id/tvSendData"
+        app:layout_constraintTop_toBottomOf="@+id/tvSendData"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
