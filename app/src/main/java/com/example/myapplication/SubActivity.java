@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +29,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-public class SubActivity extends AppCompatActivity {
+public class SubActivity extends AppCompatActivity implements JoystickView.JoystickListener{
     TextView mTvBluetoothStatus;
     TextView mTvReceiveData;
     TextView mTvSendData;
@@ -51,9 +53,16 @@ public class SubActivity extends AppCompatActivity {
     final static int BT_CONNECTING_STATUS = 3;
     final static UUID BT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
+
+    @Override
+    public void onJoystickMoved(float xPercent, float yPercent, int id) {
+        Log.d("Right Joystick", "X percent: " + xPercent + " Y percent: " + yPercent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        JoystickView joystick = new JoystickView(this);
         setContentView(R.layout.activity_sub1);
 
         mTvBluetoothStatus = (TextView)findViewById(R.id.tvBluetoothStatus);
