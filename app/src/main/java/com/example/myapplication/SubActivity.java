@@ -109,7 +109,6 @@ public class SubActivity extends AppCompatActivity {
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-                    mTvReceiveData.setText("");
                     mTvReceiveData.setText(readMessage);
                 }
             }
