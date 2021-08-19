@@ -57,11 +57,12 @@ public class SubActivity extends AppCompatActivity implements JoystickView.Joyst
     @Override
     public void onJoystickMoved(float xPercent, float yPercent, int id) {
         Log.d("Right Joystick", "X percent: " + xPercent + " Y percent: " + yPercent);
+        double seta = Math.toDegrees(Math.atan2((double) yPercent, (double) xPercent)) * -1;
+        Log.d("Right Joystick", "seta: " + seta);
         if(mThreadConnectedBluetooth != null) {
-            mThreadConnectedBluetooth.write(Float.toString(xPercent));
+            mThreadConnectedBluetooth.write(Float.toString((float)seta));
         }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
