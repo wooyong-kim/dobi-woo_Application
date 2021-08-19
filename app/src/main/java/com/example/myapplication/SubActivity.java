@@ -59,6 +59,7 @@ public class SubActivity extends AppCompatActivity implements JoystickView.Joyst
         Log.d("Right Joystick", "X percent: " + xPercent + " Y percent: " + yPercent);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
