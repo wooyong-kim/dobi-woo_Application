@@ -37,7 +37,9 @@ public class SubActivity extends AppCompatActivity implements JoystickView.Joyst
     Button mBtnBluetoothOff;
     Button mBtnConnect;
     Button mBtnSendData;
+    Button button1;
     Button button2;
+    Button button3;
 
     BluetoothAdapter mBluetoothAdapter;
     Set<BluetoothDevice> mPairedDevices;
@@ -52,15 +54,17 @@ public class SubActivity extends AppCompatActivity implements JoystickView.Joyst
     final static int BT_MESSAGE_READ = 2;
     final static int BT_CONNECTING_STATUS = 3;
     final static UUID BT_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-
+    float data;
+    double Seta;
 
     @Override
     public void onJoystickMoved(float xPercent, float yPercent, int id) {
         Log.d("Right Joystick", "X percent: " + xPercent + " Y percent: " + yPercent);
-        double seta = Math.toDegrees(Math.atan2((double) yPercent, (double) xPercent)) * -1;
-        Log.d("Right Joystick", "seta: " + seta);
+        Seta = Math.toDegrees(Math.atan2((double) yPercent, (double) xPercent)) * -1;
+        if(xPercent == 3000 && yPercent == 3000) Seta = 3000;
+        Log.d("Right Joystick", "seta: " + Seta);
         if(mThreadConnectedBluetooth != null) {
-            mThreadConnectedBluetooth.write(Float.toString((float)seta));
+            mThreadConnectedBluetooth.write(Float.toString((float)Seta));
         }
     }
 
@@ -77,7 +81,9 @@ public class SubActivity extends AppCompatActivity implements JoystickView.Joyst
         mBtnBluetoothOff = (Button)findViewById(R.id.btnBluetoothOff);
         mBtnConnect = (Button)findViewById(R.id.btnConnect);
         mBtnSendData = (Button)findViewById(R.id.btnSendData);
-        button2=findViewById(R.id.button2);
+        button1 = (Button)findViewById(R.id.button1);
+        button2 = (Button)findViewById(R.id.button2);
+        button3 = (Button)findViewById(R.id.button3);
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
 
@@ -108,11 +114,34 @@ public class SubActivity extends AppCompatActivity implements JoystickView.Joyst
                 }
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(SubActivity.this,MainActivity.class);
-                startActivity(i);            }
+                startActivity(i);
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = 1000;
+                Log.d("data", "data: " + data);
+                if(mThreadConnectedBluetooth != null) {
+                    mThreadConnectedBluetooth.write(Float.toString((float)data));
+                }
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                data = 2000;
+                Seta = 3000;
+                Log.d("data", "data: " + data);
+                if(mThreadConnectedBluetooth != null) {
+                    mThreadConnectedBluetooth.write(Float.toString((float)data));
+                    mThreadConnectedBluetooth.write(Float.toString((float)Seta));
+                }
+            }
         });
         mBluetoothHandler = new Handler(){
             public void handleMessage(android.os.Message msg){
