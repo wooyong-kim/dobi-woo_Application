@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:configChanges="orientation|keyboardHidden|screenSize"
     android:orientation="vertical">
 
     <TextView
@@ -20,21 +21,13 @@
         android:textSize="50sp" />
 
     <Button
-        android:id="@+id/bluetoothbutton"
+        android:id="@+id/joystick_button"
         android:layout_width="match_parent"
-        android:layout_height="50sp"
+        android:layout_height="75sp"
         android:backgroundTint="@color/purple_500"
         android:gravity="center"
-        android:text="블루투스 설정"
-        android:textColor="@color/black" />
-
-    <Button
-        android:id="@+id/joystickbutton"
-        android:layout_width="match_parent"
-        android:layout_height="50sp"
-        android:backgroundTint="@color/purple_500"
-        android:gravity="center"
-        android:text="조이스틱"
-        android:textColor="@color/black" />
+        android:text="RC car 조작 시작"
+        android:textSize="20dp"
+        android:textColor="@color/white" /> />
 
 </LinearLayout>

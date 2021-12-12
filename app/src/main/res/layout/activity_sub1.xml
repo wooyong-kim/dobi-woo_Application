@@ -31,12 +31,11 @@
 
     <TextView
         android:id="@+id/tvBluetoothStatus"
-        android:layout_width="170dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="10dp"
-        android:text="status"
-        app:layout_constraintStart_toStartOf="@+id/btnBluetoothOn"
-        app:layout_constraintTop_toBottomOf="@+id/btnBluetoothOn" />
+        android:layout_width="1dp"
+        android:layout_height="10dp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/btnBluetoothOff"
+        app:layout_constraintTop_toTopOf="@+id/btnBluetoothOff" />
 
     <Button
         android:id="@+id/btnConnect"
@@ -44,46 +43,67 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:text="연결하기"
-        app:layout_constraintStart_toStartOf="@+id/tvBluetoothStatus"
-        app:layout_constraintTop_toBottomOf="@+id/tvBluetoothStatus" />
+        app:layout_constraintStart_toStartOf="@+id/btnBluetoothOn"
+        app:layout_constraintTop_toBottomOf="@+id/btnBluetoothOn" />
 
     <TextView
         android:id="@+id/tvReceiveData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Receive"
-        app:layout_constraintStart_toStartOf="@+id/btnSendData"
-        app:layout_constraintTop_toBottomOf="@+id/btnSendData" />
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@+id/btnBluetoothOff"
+        app:layout_constraintTop_toTopOf="@+id/btnBluetoothOff" />
 
     <Button
         android:id="@+id/btnSendData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
         android:text="전송"
+        app:layout_constraintStart_toEndOf="@+id/btnConnect"
+        app:layout_constraintTop_toBottomOf="@+id/btnBluetoothOn" />
+
+    <EditText
+        android:id="@+id/tvSendData"
+        android:layout_width="107dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Send Data"
         app:layout_constraintStart_toStartOf="@+id/btnConnect"
         app:layout_constraintTop_toBottomOf="@+id/btnConnect" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+        android:text="메인 화면으로 이동"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/tvSendData"
+        app:layout_constraintTop_toBottomOf="@+id/tvSendData" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/purple_200"
-        android:text="이전 페이지 갈래?"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/tvReceiveData"
-        app:layout_constraintTop_toBottomOf="@+id/tvReceiveData" />
+        android:text="self_driving on"
+        android:textSize="27sp"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
 
-    <EditText
-        android:id="@+id/tvSendData"
+    <Button
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Send Data"
+        android:backgroundTint="@color/purple_200"
+        android:text="self_driving off"
+        android:textSize="26sp"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
@@ -91,8 +111,11 @@
         android:id="@+id/joystick"
         android:layout_width="184dp"
         android:layout_height="176dp"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintStart_toStartOf="@+id/tvSendData"
-        app:layout_constraintTop_toBottomOf="@+id/tvSendData"/>
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

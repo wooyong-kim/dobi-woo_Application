@@ -24,7 +24,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SubActivity"/>
-        <activity android:name=".JoystickActivity"/>
     </application>
 
 </manifest>
