@@ -135,11 +135,9 @@ public class SubActivity extends AppCompatActivity implements JoystickView.Joyst
             @Override
             public void onClick(View v) {
                 data = 2000;
-                Seta = 3000;
                 Log.d("data", "data: " + data);
                 if(mThreadConnectedBluetooth != null) {
                     mThreadConnectedBluetooth.write(Float.toString((float)data));
-                    mThreadConnectedBluetooth.write(Float.toString((float)Seta));
                 }
             }
         });
